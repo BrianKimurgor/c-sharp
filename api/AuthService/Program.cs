@@ -5,6 +5,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using AuthService.Configs;
 using AuthService.Data;
+using AuthService.Repositories;
+using AuthService.Services;
+using AuthSvc = AuthService.Services.AuthService;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,10 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 
 // 3. Configure JWT Authentication
 var key = Encoding.UTF8.GetBytes(jwtSettings.SecretKey);
+if (key.Length < 32)
+{
+    throw new ArgumentException("The SecretKey must be at least 256 bits (32 bytes) long.");
+}
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -38,6 +46,13 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key),
     };
 });
+
+// 3. Register Repos & Services
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IAuthService, AuthSvc>();
+
+
 
 // 4. Add Controllers and JSON settings
 builder.Services.AddControllers()

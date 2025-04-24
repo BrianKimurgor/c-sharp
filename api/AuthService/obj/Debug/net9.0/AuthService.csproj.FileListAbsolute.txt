@@ -292,3 +292,4 @@ C:\Users\BrianKimurgor\Desktop\portfolio\api\AuthService\obj\Debug\net9.0\refint
 C:\Users\BrianKimurgor\Desktop\portfolio\api\AuthService\obj\Debug\net9.0\AuthService.pdb
 C:\Users\BrianKimurgor\Desktop\portfolio\api\AuthService\obj\Debug\net9.0\AuthService.genruntimeconfig.cache
 C:\Users\BrianKimurgor\Desktop\portfolio\api\AuthService\obj\Debug\net9.0\ref\AuthService.dll
+C:\Users\BrianKimurgor\Desktop\portfolio\api\AuthService\bin\Debug\net9.0\BCrypt.Net-Next.dll
