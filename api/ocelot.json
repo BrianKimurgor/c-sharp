@@ -1,29 +1,28 @@
 {
-    "Routes": [
-      {
-        "RouteId": "Auth",
-        "UpstreamPathTemplate": "/auth/{everything}",
-        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-        "DownstreamPathTemplate": "/api/{everything}",
-        "DownstreamScheme": "https",
-        "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 6001 }
-        ]
-      },
-      {
-        "RouteId": "Projects",
-        "UpstreamPathTemplate": "/projects/{everything}",
-        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-        "DownstreamPathTemplate": "/api/{everything}",
-        "DownstreamScheme": "https",
-        "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 6002 }
-        ]
-      }
-    ],
-    "GlobalConfiguration": {
-      "RequestIdKey": "OcRequestId",
-      "BaseUrl": "https://localhost:5000"
+  "Routes": [
+    {
+      "RouteId": "RootHealth",
+      "UpstreamPathTemplate": "/",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamPathTemplate": "/api/auth/health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5191 }
+      ]
+    },
+    {
+      "RouteId": "Auth",
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5191 }
+      ]
     }
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "BaseUrl": "https://localhost:5000"
   }
-  
+}
