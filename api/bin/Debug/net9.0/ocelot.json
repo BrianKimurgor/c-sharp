@@ -1,0 +1,29 @@
+{
+    "Routes": [
+      {
+        "RouteId": "Auth",
+        "UpstreamPathTemplate": "/auth/{everything}",
+        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+        "DownstreamPathTemplate": "/api/{everything}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 6001 }
+        ]
+      },
+      {
+        "RouteId": "Projects",
+        "UpstreamPathTemplate": "/projects/{everything}",
+        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+        "DownstreamPathTemplate": "/api/{everything}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 6002 }
+        ]
+      }
+    ],
+    "GlobalConfiguration": {
+      "RequestIdKey": "OcRequestId",
+      "BaseUrl": "https://localhost:5000"
+    }
+  }
+  
