@@ -58,3 +58,4 @@ C:\Users\BrianKimurgor\Desktop\portfolio\api\obj\Debug\net9.0\refint\api.dll
 C:\Users\BrianKimurgor\Desktop\portfolio\api\obj\Debug\net9.0\api.pdb
 C:\Users\BrianKimurgor\Desktop\portfolio\api\obj\Debug\net9.0\api.genruntimeconfig.cache
 C:\Users\BrianKimurgor\Desktop\portfolio\api\obj\Debug\net9.0\ref\api.dll
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BCrypt.Net-Next.dll

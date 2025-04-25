@@ -25,7 +25,7 @@ namespace AuthService.Data
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Username).IsRequired().HasMaxLength(50);
-                entity.Property(e => e.PasswordHash).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.PasswordHash).IsRequired().HasMaxLength(60);
                 entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
             });
 

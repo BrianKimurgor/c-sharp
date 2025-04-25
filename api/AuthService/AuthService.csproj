@@ -6,9 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>AuthService</RootNamespace>
   </PropertyGroup>
-  <appSettings>
-  <add key="AppContext.SetSwitch:Switch.Microsoft.IdentityModel.UnsafeRelaxHmacKeySizeValidation" value="true" />
-</appSettings>
 
 
   <ItemGroup>

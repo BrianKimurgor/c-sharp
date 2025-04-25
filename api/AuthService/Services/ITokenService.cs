@@ -12,7 +12,7 @@ namespace AuthService.Services
 {
     public interface ITokenService
 {
-    AuthResponseDto GenerateTokens(User user);
+    AuthResponseDto GenerateTokens(User user, string createdByIp);
     ClaimsPrincipal? ValidateToken(string token);
 }
 

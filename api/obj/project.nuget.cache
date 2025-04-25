@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2zVGazbbnIk=",
+  "dgSpecHash": "BJ5rbwrt5M8=",
   "success": true,
   "projectFilePath": "C:\\Users\\BrianKimurgor\\Desktop\\portfolio\\api\\api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\BrianKimurgor\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\BrianKimurgor\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\BrianKimurgor\\.nuget\\packages\\ipaddressrange\\6.2.0\\ipaddressrange.6.2.0.nupkg.sha512",
     "C:\\Users\\BrianKimurgor\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\9.0.4\\microsoft.aspnetcore.jsonpatch.9.0.4.nupkg.sha512",

@@ -48,6 +48,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 // 3. Register Repos & Services
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthSvc>();

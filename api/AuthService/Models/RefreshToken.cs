@@ -14,8 +14,8 @@ namespace AuthService.Models
         public required string CreatedByIp { get; set; }      // IP address that requested it
 
         public DateTime? Revoked { get; set; }       // When it was revoked (if at all)
-        public required string RevokedByIp { get; set; }      // IP that revoked it
-        public required string ReplacedByToken { get; set; }  // If rotated, the new token
+        public required string? RevokedByIp { get; set; }      // IP that revoked it
+        public required string? ReplacedByToken { get; set; }  // If rotated, the new token
 
         // Foreign key back to the User
         public required int UserId { get; set; }

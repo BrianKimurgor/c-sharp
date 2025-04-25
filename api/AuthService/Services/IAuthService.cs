@@ -10,8 +10,8 @@ namespace AuthService.Services
 {
     public interface IAuthService
     {
-        Task<AuthResponseDto> RegisterAsync(RegisterRequestDto dto);
-        Task<AuthResponseDto> LoginAsync(LoginRequestDto dto);
+        Task<AuthResponseDto> RegisterAsync(RegisterRequestDto dto,string createdByIp);
+        Task<AuthResponseDto> LoginAsync(LoginRequestDto dto, string createdByIp);
         Task<AuthResponseDto> RefreshAsync(string refreshToken);
     }
 }
