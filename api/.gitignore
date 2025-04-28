@@ -1,2 +1,42 @@
-/bin
-/obj
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore IDE and editor folders
+.vs/
+.idea/
+.vscode/
+
+# Ignore build logs
+*.log
+
+# Ignore node_modules (if applicable)
+node_modules/
+
+# Ignore package manager directories
+bower_components/
+
+# Ignore system files (macOS, Windows)
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ignore ASP.NET Core specific settings
+secrets.json
+appsettings.Development.json
+appsettings.*.json
+
+# Ignore test output
+TestResults/
+
+# Ignore other compiled files
+*.dll
+*.exe
+*.pdb
+*.cache

@@ -19,6 +19,16 @@
       "DownstreamHostAndPorts": [
         { "Host": "localhost", "Port": 5191 }
       ]
+    },
+    {
+      "RouteId": "Badge",
+      "UpstreamPathTemplate": "/api/badges/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/badges/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5045 }
+      ]
     }
   ],
   "GlobalConfiguration": {
