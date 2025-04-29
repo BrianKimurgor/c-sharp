@@ -29,6 +29,16 @@
       "DownstreamHostAndPorts": [
         { "Host": "localhost", "Port": 5045 }
       ]
+    },
+    {
+      "RouteId": "Blog",
+      "UpstreamPathTemplate": "/api/blogs/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/blogs/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5182 }
+      ]
     }
   ],
   "GlobalConfiguration": {

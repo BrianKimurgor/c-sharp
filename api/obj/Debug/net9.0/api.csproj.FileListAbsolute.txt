@@ -74,3 +74,16 @@ C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BadgeService\obj\p
 C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BadgeService\Properties\launchSettings.json
 C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\SendGrid.dll
 C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\StarkbankEcdsa.dll
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\appsettings.Development.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\appsettings.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\bin\Debug\net9.0\appsettings.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\bin\Debug\net9.0\BlogService.deps.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\bin\Debug\net9.0\BlogService.runtimeconfig.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\bin\Debug\net9.0\BlogService.staticwebassets.endpoints.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\obj\BlogService.csproj.nuget.dgspec.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\obj\Debug\net9.0\BlogService.sourcelink.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\obj\project.assets.json
+C:\Users\BrianKimurgor\Desktop\portfolio\api\bin\Debug\net9.0\BlogService\Properties\launchSettings.json
