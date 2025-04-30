@@ -37,6 +37,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.MapGet("/", () => "🟢 API Gateway is running");
+
 // 6. Use Ocelot as the final middleware
 await app.UseOcelot();
 

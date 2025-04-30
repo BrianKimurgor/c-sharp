@@ -37,7 +37,17 @@
       "DownstreamPathTemplate": "/api/blogs/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        { "Host": "localhost", "Port": 5045 }
+        { "Host": "localhost", "Port": 5182 }
+      ]
+    },
+    {
+      "RouteId": "Social",
+      "UpstreamPathTemplate": "/api/social/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/social/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5020 }
       ]
     }
   ],

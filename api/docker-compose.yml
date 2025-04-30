@@ -1,0 +1,114 @@
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      - auth-service
+      - badge-service
+      - blog-service
+      - social-service
+      - work-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;
+    networks:
+      - portfolio-network
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: AuthService/Dockerfile
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
+
+  badge-service:
+    build:
+      context: .
+      dockerfile: BadgeService/Dockerfile
+    ports:
+      - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
+
+  blog-service:
+    build:
+      context: .
+      dockerfile: BlogService/Dockerfile
+    ports:
+      - "5004:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
+
+  social-service:
+    build:
+      context: .
+      dockerfile: SocialService/Dockerfile
+    ports:
+      - "5005:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
+
+  work-service:
+    build:
+      context: ./WorkService
+      dockerfile: Dockerfile
+    ports:
+      - "5006:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "YourStrong@Passw0rd"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql-data:/var/opt/mssql
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+
+volumes:
+  sql-data:
