@@ -1,4 +1,5 @@
 services:
+  
   api-gateway:
     build:
       context: .
@@ -26,7 +27,7 @@ services:
       - "5002:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.@
 
     depends_on:
       - db
@@ -41,7 +42,7 @@ services:
       - "5003:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.@
 
     depends_on:
       - db
@@ -56,7 +57,7 @@ services:
       - "5004:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
 
     depends_on:
       - db
@@ -71,7 +72,7 @@ services:
       - "5005:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.@
 
     depends_on:
       - db
@@ -86,23 +87,24 @@ services:
       - "5006:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=AuthDb;Username=postgres;Password=6979samZ.@
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.@
 
     depends_on:
       - db
     networks:
       - portfolio-network
 
+  #configure postgres database
   db:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: postgres:latest
     environment:
-      SA_PASSWORD: "YourStrong@Passw0rd"
-      ACCEPT_EULA: "Y"
-      MSSQL_PID: "Express"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 6979samZ.
+      POSTGRES_DB: PortfolioDb
     ports:
-      - "1433:1433"
+      - "5432:5432"
     volumes:
-      - sql-data:/var/opt/mssql
+      - sql-data:/var/lib/postgresql/data
     networks:
       - portfolio-network
 
