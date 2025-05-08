@@ -17,7 +17,7 @@
       "DownstreamPathTemplate": "/api/auth/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        { "Host": "localhost", "Port": 5191 }
+        { "Host": "auth-service", "Port": 80 }
       ]
     },
     {
@@ -27,7 +27,7 @@
       "DownstreamPathTemplate": "/api/badges/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        { "Host": "localhost", "Port": 5045 }
+        { "Host": "badge-service", "Port": 80 }
       ]
     },
     {
@@ -37,7 +37,7 @@
       "DownstreamPathTemplate": "/api/blogs/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        { "Host": "localhost", "Port": 5182 }
+        { "Host": "blog-service", "Port": 80}
       ]
     },
     {
@@ -47,7 +47,17 @@
       "DownstreamPathTemplate": "/api/socials/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        { "Host": "localhost", "Port": 5020 }
+        { "Host": "social-service", "Port": 80 }
+      ]
+    },
+    {
+      "RouteId": "work",
+      "UpstreamPathTemplate": "/api/work/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/work/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "work-service", "Port": 80 }
       ]
     }
   ],
