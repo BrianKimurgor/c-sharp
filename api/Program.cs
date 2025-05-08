@@ -20,6 +20,7 @@ builder.Configuration
 // 3. Register Ocelot
 builder.Services.AddOcelot(builder.Configuration);
 
+builder.WebHost.UseUrls("http://0.0.0.0:80");
 var app = builder.Build();
 
 // 4. Swagger UI (if in Development)
