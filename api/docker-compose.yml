@@ -38,20 +38,20 @@ services:
   #   networks:
   #     - portfolio-network
 
-  # auth-service:
-  #   build:
-  #     context: .
-  #     dockerfile: AuthService/Dockerfile
-  #   ports:
-  #     - "5002:80"
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Development
-  #     - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
+  auth-service:
+    build:
+      context: .
+      dockerfile: AuthService/Dockerfile
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
 
-  #   depends_on:
-  #     - db
-  #   networks:
-  #     - portfolio-network
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
 
   badge-service:
     build:
