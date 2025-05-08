@@ -33,6 +33,7 @@ builder.Services.AddControllers()
     });
 
 
+builder.WebHost.UseUrls("http://0.0.0.0:80"); // Set the URL for the application
 var app = builder.Build();
 
 // Middlewares
