@@ -13,6 +13,18 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Portfolio API Gateway", Version = "v1" });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DevFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+
+});
+
 // 2. Load Ocelot configuration
 builder.Configuration
     .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
@@ -33,6 +45,9 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Portfolio API Gateway V1");
     });
 }
+
+// Enable CORS
+app.UseCors("DevFrontend");
 
 // 5. Standard middleware order
 app.UseHttpsRedirection();

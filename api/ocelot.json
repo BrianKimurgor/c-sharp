@@ -58,7 +58,19 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         { "Host": "work-service", "Port": 80 }
-      ]
+      ],
+      "CorsPolicy": "AllowAll"
+    },
+    {
+      "RouteId": "Project",
+      "UpstreamPathTemplate": "/api/projects/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/projects/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "project-service", "Port": 80 }
+      ],
+      "CorsPolicy": "DevFrontend"
     }
   ],
   "GlobalConfiguration": {
