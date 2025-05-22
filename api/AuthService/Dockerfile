@@ -2,8 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["/AuthService.csproj", "AuthService/"]
-RUN dotnet restore "/AuthService.csproj"
+COPY ["AuthService/AuthService.csproj", "AuthService/"]
+RUN dotnet restore "AuthService/AuthService.csproj"
 
 COPY . .
 WORKDIR "/src/AuthService"
@@ -28,7 +28,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 COPY --from=build /src /src
 
 # Copy the entrypoint script
-COPY /entrypoint.sh .
+COPY AuthService/entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 
 # 5. Entry point
