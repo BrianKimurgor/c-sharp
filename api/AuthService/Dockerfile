@@ -28,7 +28,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 COPY --from=build /src /src
 
 # Copy the entrypoint script
-COPY AuthService/entrypoint.sh .
+COPY entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 
 # 5. Entry point
