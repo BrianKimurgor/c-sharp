@@ -25,11 +25,15 @@ jobs:
 
       - name: Build Docker images
         run: |
-          docker build -t $IMAGE_PREFIX-auth:latest ./src/AuthService
-          docker build -t $IMAGE_PREFIX-project:latest ./src/ProjectService
-          docker build -t $IMAGE_PREFIX-blog:latest ./src/BlogService
-          docker build -t $IMAGE_PREFIX-work:latest ./src/WorkService
-          docker build -t $IMAGE_PREFIX-ocelot:latest ./src/OcelotGateway
+          docker build -t $IMAGE_PREFIX-auth:latest ./api/AuthService
+          docker build -t $IMAGE_PREFIX-project:latest ./api/ProjectService
+          docker build -t $IMAGE_PREFIX-blog:latest ./api/BlogService
+          docker build -t $IMAGE_PREFIX-badge:latest ./api/BadgeService
+          docker build -t $IMAGE_PREFIX-work:latest ./api/WorkService
+          docker build -t $IMAGE_PREFIX-profile:latest ./api/ProfileService
+          docker build -t $IMAGE_PREFIX-social:latest ./api/SocialService
+          docker build -t $IMAGE_PREFIX-work:latest ./api/WorkService
+          docker build -t $IMAGE_PREFIX-ocelot:latest ./api
 
       - name: Push images to Docker Hub
         run: |
@@ -38,6 +42,10 @@ jobs:
           docker push $IMAGE_PREFIX-blog:latest
           docker push $IMAGE_PREFIX-work:latest
           docker push $IMAGE_PREFIX-ocelot:latest
+          docker push $IMAGE_PREFIX-badge:latest
+          docker push $IMAGE_PREFIX-profile:latest
+          docker push $IMAGE_PREFIX-social:latest
+          docker push $IMAGE_PREFIX-work:latest
 
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.0.0
@@ -51,6 +59,10 @@ jobs:
             docker pull $IMAGE_PREFIX-blog:latest
             docker pull $IMAGE_PREFIX-work:latest
             docker pull $IMAGE_PREFIX-ocelot:latest
+            docker pull $IMAGE_PREFIX-badge:latest
+            docker pull $IMAGE_PREFIX-profile:latest
+            docker pull $IMAGE_PREFIX-social:latest
+            docker pull $IMAGE_PREFIX-work:latest
 
             cd /var/www/microservices
             docker-compose down
