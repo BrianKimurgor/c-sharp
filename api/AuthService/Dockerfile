@@ -2,8 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["AuthService/AuthService.csproj", "AuthService/"]
-RUN dotnet restore "AuthService/AuthService.csproj"
+COPY ["/AuthService.csproj", "AuthService/"]
+RUN dotnet restore "/AuthService.csproj"
 
 COPY . .
 WORKDIR "/src/AuthService"
