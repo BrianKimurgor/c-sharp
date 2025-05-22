@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  IMAGE_PREFIX: yourdockerhubusername/portfolio
+  IMAGE_PREFIX: nriankimurgor/portfoliorepo
   COMPOSE_PROJECT_NAME: portfolio
 
 jobs:
