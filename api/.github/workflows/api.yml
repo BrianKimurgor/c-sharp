@@ -3,7 +3,7 @@ name: Deploy .NET Microservices
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   IMAGE_PREFIX: yourdockerhubusername/portfolio
