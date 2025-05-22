@@ -31,19 +31,4 @@ jobs:
         run: |
           docker push $IMAGE_PREFIX-auth:latest
 
-      - name: Deploy to VPS via SSH
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_PRIVATE_KEY }}
-          port: 22
-          script: |
-            set -e
-            docker pull $IMAGE_PREFIX-auth:latest
 
-            cd /var/www/microservices
-            docker-compose down
-            docker-compose up -d --remove-orphans
-        env:
-          IMAGE_PREFIX: ${{ env.IMAGE_PREFIX }}
