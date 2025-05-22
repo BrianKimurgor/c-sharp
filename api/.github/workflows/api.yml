@@ -1,0 +1,57 @@
+name: Deploy .NET Microservices
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_PREFIX: yourdockerhubusername/portfolio
+  COMPOSE_PROJECT_NAME: portfolio
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker images
+        run: |
+          docker build -t $IMAGE_PREFIX-auth:latest ./src/AuthService
+          docker build -t $IMAGE_PREFIX-project:latest ./src/ProjectService
+          docker build -t $IMAGE_PREFIX-blog:latest ./src/BlogService
+          docker build -t $IMAGE_PREFIX-work:latest ./src/WorkService
+          docker build -t $IMAGE_PREFIX-ocelot:latest ./src/OcelotGateway
+
+      - name: Push images to Docker Hub
+        run: |
+          docker push $IMAGE_PREFIX-auth:latest
+          docker push $IMAGE_PREFIX-project:latest
+          docker push $IMAGE_PREFIX-blog:latest
+          docker push $IMAGE_PREFIX-work:latest
+          docker push $IMAGE_PREFIX-ocelot:latest
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_PRIVATE_KEY }}
+          script: |
+            docker pull $IMAGE_PREFIX-auth:latest
+            docker pull $IMAGE_PREFIX-project:latest
+            docker pull $IMAGE_PREFIX-blog:latest
+            docker pull $IMAGE_PREFIX-work:latest
+            docker pull $IMAGE_PREFIX-ocelot:latest
+
+            cd /var/www/microservices
+            docker-compose down
+            docker-compose up -d --remove-orphans
