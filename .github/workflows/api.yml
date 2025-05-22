@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Docker images
         run: |
-          docker build -t $IMAGE_PREFIX-auth:latest /api/AuthService
+          docker build -t $IMAGE_PREFIX-auth:latest ./api/AuthService
 
           
 
