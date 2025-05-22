@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  IMAGE_PREFIX: nriankimurgor/portfoliorepo
+  IMAGE_PREFIX: briankimurgor/portfoliorepo
   COMPOSE_PROJECT_NAME: portfolio
 
 jobs:
