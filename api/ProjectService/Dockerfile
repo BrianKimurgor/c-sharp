@@ -2,11 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["ProjectService/ProjectService.csproj", "ProjectService/"]
-RUN dotnet restore "ProjectService/ProjectService.csproj"
+COPY ["ProjectService.csproj", "./"]
+RUN dotnet restore "ProjectService.csproj"
 
 COPY . .
-WORKDIR "/src/ProjectService"
+WORKDIR "/src"
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet publish "ProjectService.csproj" -c Release -o /app/publish

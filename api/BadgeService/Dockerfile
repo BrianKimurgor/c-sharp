@@ -2,11 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["BadgeService/BadgeService.csproj", "BadgeService/"]
-RUN dotnet restore "BadgeService/BadgeService.csproj"
+COPY ["BadgeService.csproj", "./"]
+RUN dotnet restore "BadgeService.csproj"
 
 COPY . .
-WORKDIR "/src/BadgeService"
+WORKDIR "/src"
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet publish "BadgeService.csproj" -c Release -o /app/publish

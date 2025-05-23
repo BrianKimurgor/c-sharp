@@ -2,11 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["SocialService/SocialService.csproj", "SocialService/"]
-RUN dotnet restore "SocialService/SocialService.csproj"
+COPY ["SocialService.csproj", "./"]
+RUN dotnet restore "SocialService.csproj"
 
 COPY . .
-WORKDIR "/src/SocialService"
+WORKDIR "/src"
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet publish "SocialService.csproj" -c Release -o /app/publish

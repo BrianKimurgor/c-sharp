@@ -28,7 +28,6 @@ jobs:
           docker build -t $IMAGE_PREFIX-auth:latest ./api/AuthService
           docker build -t $IMAGE_PREFIX-badge:latest ./api/BadgeService
           docker build -t $IMAGE_PREFIX-blog:latest ./api/BlogService
-          docker build -t $IMAGE_PREFIX-profile:latest ./api/ProfileService
           docker build -t $IMAGE_PREFIX-project:latest ./api/ProjectService
           docker build -t $IMAGE_PREFIX-social:latest ./api/SocialService
           docker build -t $IMAGE_PREFIX-work:latest ./api/WorkService
@@ -41,7 +40,6 @@ jobs:
           docker push $IMAGE_PREFIX-auth:latest
           docker push $IMAGE_PREFIX-badge:latest
           docker push $IMAGE_PREFIX-blog:latest
-          docker push $IMAGE_PREFIX-profile:latest
           docker push $IMAGE_PREFIX-project:latest
           docker push $IMAGE_PREFIX-social:latest
           docker push $IMAGE_PREFIX-work:latest

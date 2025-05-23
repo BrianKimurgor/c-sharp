@@ -2,11 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["BlogService/BlogService.csproj", "BlogService/"]
-RUN dotnet restore "BlogService/BlogService.csproj"
+COPY ["BlogService.csproj", "./"]
+RUN dotnet restore "BlogService.csproj"
 
 COPY . .
-WORKDIR "/src/BlogService"
+WORKDIR "/src"
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet publish "BlogService.csproj" -c Release -o /app/publish
