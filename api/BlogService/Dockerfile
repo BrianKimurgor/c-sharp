@@ -29,7 +29,7 @@ COPY --from=build /src /src
 
 
 # Copy the entrypoint
-COPY BlogService/entrypoint.sh .
+COPY ./entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]

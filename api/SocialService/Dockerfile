@@ -28,7 +28,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 COPY --from=build /src /src
 
 # Copy the entrypoint
-COPY SocialService/entrypoint.sh .
+COPY ./entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 
 
