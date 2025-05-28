@@ -1,35 +1,44 @@
-# Build Stage (uses SDK image)
+# ---------- Build Stage ----------
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY ["BadgeService.csproj", "./"]
-RUN dotnet restore "BadgeService.csproj"
+# Copy only the .csproj file first for faster caching and efficient layer reuse
+COPY BadgeService/BadgeService.csproj ./BadgeService/
+RUN dotnet restore ./BadgeService/BadgeService.csproj
 
+# Now copy the rest of the source code
 COPY . .
-WORKDIR "/src"
+
+# Change to the BadgeService directory for publish
+WORKDIR /src/BadgeService
+
+# Install EF Core CLI globally if you need it during build
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
-RUN dotnet publish "BadgeService.csproj" -c Release -o /app/publish
 
-# Runtime stage (uses ASP.NET image)
+# Publish the application
+RUN dotnet publish BadgeService.csproj -c Release -o /app/publish
+
+# ---------- Final Runtime Stage ----------
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS final
 WORKDIR /app
 
-# ✅ Install PostgreSQL client for pg_isready
+# Install PostgreSQL client (e.g., for `pg_isready` or migrations)
 RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
 
-# Copy published app and tools
-COPY --from=build /app/publish .
+# Copy the published output
+COPY --from=build /app/publish . 
+
+# Optional: Copy dotnet tools if EF Core CLI or others are needed at runtime
 COPY --from=build /root/.dotnet /root/.dotnet
 COPY --from=build /root/.nuget /root/.nuget
 ENV PATH="$PATH:/root/.dotnet/tools"
 
-# Add this to the final stage
+# Optional: Copy full source (needed only if runtime uses it, like EF migrations)
 COPY --from=build /src /src
 
-
-# Copy the entrypoint
-COPY ./entrypoint.sh .
+# Copy the entrypoint script and make it executable
+COPY ./BadgeService/entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
