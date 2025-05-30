@@ -30,6 +30,7 @@ services:
       - auth-service
       - badge-service
       - blog-service
+      - education-service
       - social-service
       - work-service
       - project-service
@@ -68,13 +69,28 @@ services:
       - db
     networks:
       - portfolio-network
+  
+  education-service:
+    build:
+      context: .
+      dockerfile: EducationService/Dockerfile
+    ports:
+      - "5004:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
 
+    depends_on:
+      - db
+    networks:
+      - portfolio-network
+    
   blog-service:
     build:
       context: .
       dockerfile: BlogService/Dockerfile
     ports:
-      - "5004:80"
+      - "5005:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
@@ -89,7 +105,7 @@ services:
       context: .
       dockerfile: SocialService/Dockerfile
     ports:
-      - "5005:80"
+      - "5006:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
@@ -104,7 +120,7 @@ services:
       context: .
       dockerfile: WorkService/Dockerfile
     ports:
-      - "5006:80"
+      - "5007:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.
@@ -119,7 +135,7 @@ services:
       context: .
       dockerfile: ProjectService/Dockerfile
     ports:
-      - "5007:80"
+      - "5008:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=PortfolioDb;Username=postgres;Password=6979samZ.

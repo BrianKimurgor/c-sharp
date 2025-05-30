@@ -31,6 +31,16 @@
       ]
     },
     {
+      "RouteId": "Education",
+      "UpstreamPathTemplate": "/api/educations/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/educations/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "education-service", "Port": 80 }
+      ]
+    },
+    {
       "RouteId": "Blog",
       "UpstreamPathTemplate": "/api/blogs/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
