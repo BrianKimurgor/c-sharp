@@ -46,6 +46,9 @@ namespace WorkService.Repositories
             existingWork.JobTitle = work.JobTitle;
             existingWork.LogoUrl = work.LogoUrl;
             existingWork.Description = work.Description;
+            existingWork.Responsibilities = work.Responsibilities;
+            existingWork.Tags = work.Tags;
+            existingWork.Location = work.Location;
             existingWork.StartDate = work.StartDate;
             existingWork.EndDate = work.EndDate;
 

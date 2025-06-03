@@ -30,6 +30,9 @@ namespace WorkService.Services
                 CompanyName = works.CompanyName,
                 LogoUrl = works.LogoUrl,
                 Description = works.Description,
+                Responsibilities = works.Responsibilities,
+                Tags = works.Tags,
+                Location = works.Location,
                 StartDate = works.StartDate,
                 EndDate = works.EndDate
             });
@@ -48,6 +51,9 @@ namespace WorkService.Services
                 CompanyName = work.CompanyName,
                 LogoUrl = work.LogoUrl,
                 Description = work.Description,
+                Responsibilities = work.Responsibilities,
+                Tags = work.Tags,
+                Location = work.Location,
                 StartDate = work.StartDate,
                 EndDate = work.EndDate
             };
@@ -62,6 +68,9 @@ namespace WorkService.Services
                 JobTitle = workCreateDto.JobTitle,
                 LogoUrl = workCreateDto.LogoUrl,
                 Description = workCreateDto.Description,
+                Responsibilities = workCreateDto.Responsibilities,
+                Tags = workCreateDto.Tags,
+                Location = workCreateDto.Location,
                 StartDate = workCreateDto.StartDate,
                 EndDate = workCreateDto.EndDate
             };
@@ -76,6 +85,9 @@ namespace WorkService.Services
                 JobTitle = work.JobTitle,
                 LogoUrl = work.LogoUrl,
                 Description = work.Description,
+                Responsibilities = work.Responsibilities,
+                Tags = work.Tags,
+                Location = work.Location,
                 StartDate = work.StartDate,
                 EndDate = work.EndDate
             };
@@ -92,6 +104,9 @@ namespace WorkService.Services
             work.JobTitle = workUpdateDto.JobTitle;
             work.LogoUrl = workUpdateDto.LogoUrl;
             work.Description = workUpdateDto.Description;
+            work.Responsibilities = workUpdateDto.Responsibilities;
+            work.Tags = workUpdateDto.Tags;
+            work.Location = workUpdateDto.Location;
             work.StartDate = workUpdateDto.StartDate;
             work.EndDate = workUpdateDto.EndDate;
 
@@ -107,6 +122,9 @@ namespace WorkService.Services
                 JobTitle = work.JobTitle,
                 LogoUrl = work.LogoUrl,
                 Description = work.Description,
+                Responsibilities = work.Responsibilities,
+                Tags = work.Tags,
+                Location = work.Location,
                 StartDate = work.StartDate,
                 EndDate = work.EndDate
             };

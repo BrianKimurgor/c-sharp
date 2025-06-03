@@ -27,6 +27,17 @@ namespace WorkService.Data
                 entity.Property(e => e.JobTitle).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.LogoUrl).HasMaxLength(200);
                 entity.Property(e => e.Description).IsRequired();
+                entity.Property(e => e.Location).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.Responsibilities)
+                    .HasConversion(
+                        v => string.Join(',', v),
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList())
+                    .HasMaxLength(500);
+                entity.Property(e => e.Tags)
+                    .HasConversion(
+                        v => string.Join(',', v),
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList())
+                    .HasMaxLength(500);
                 entity.Property(e => e.StartDate).IsRequired();
                 entity.Property(e => e.EndDate).IsRequired(false);
             });

@@ -13,6 +13,6 @@ namespace EducationService.Models
         public string FieldOfStudy { get; set; } = string.Empty;
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        
+
     }
 }
