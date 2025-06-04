@@ -81,6 +81,16 @@
         { "Host": "project-service", "Port": 80 }
       ],
       "CorsPolicy": "DevFrontend"
+    },
+    {
+      "RouteId": "Image",
+      "UpstreamPathTemplate": "/api/images/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/images/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "image-service", "Port": 80 }
+      ]
     }
   ],
   "GlobalConfiguration": {
