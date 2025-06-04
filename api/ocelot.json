@@ -91,6 +91,16 @@
       "DownstreamHostAndPorts": [
         { "Host": "image-service", "Port": 80 }
       ]
+    },
+    {
+      "RouteId": "Profile",
+      "UpstreamPathTemplate": "/api/profiles/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/profiles/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "profile-service", "Port": 80 }
+      ]
     }
   ],
   "GlobalConfiguration": {
